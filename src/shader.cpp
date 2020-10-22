@@ -31,7 +31,11 @@ void Shader::SetUniform4f(const std::string& name, float v0, float v1, float v2,
 }
 
 unsigned int Shader::GetUniformLocation(const std::string& name) {
+    if (uniformLocationCache.find(name) != uniformLocationCache.end())
+        return uniformLocationCache[name];
+
     unsigned int location = glGetUniformLocation(rendererId, name.c_str());
+    uniformLocationCache[name] = location;
     return location;
 }
 
