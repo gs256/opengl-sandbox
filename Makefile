@@ -1,5 +1,5 @@
 # MACROS = -DGLEW_STATIC
-SRC_FILES = src/index_buffer.cpp src/vertex_buffer.cpp src/vertex_array.cpp src/vertex_buffer_layout.cpp
+SRC_FILES = src/index_buffer.cpp src/vertex_buffer.cpp src/vertex_array.cpp src/vertex_buffer_layout.cpp src/shader.cpp
 INCLUDE_DIRS = -Lglfw/lib -Lglew/lib
 LIBS = -lglfw3dll -lopengl32 -lglew32 
 OUTPUT = build/test
