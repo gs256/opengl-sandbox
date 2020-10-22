@@ -9,6 +9,7 @@
 #include "index_buffer.h"
 #include "vertex_array.h"
 #include "shader.h"
+#include "renderer.h"
 
 int main(void)
 {
@@ -71,6 +72,8 @@ int main(void)
     ib.Unbind();
     shader.Unbing();
 
+    Renderer renderer;
+
     float red = 0.0;
     float delta = 0.05;
     
@@ -78,15 +81,12 @@ int main(void)
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
+        renderer.Clear();
 
         shader.Bind();
         shader.SetUniform4f("u_Color", red, 0.3, 0.8, 1.0);
 
-        va.Bind();
-        ib.Bind();
-
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+        renderer.Draw(va, ib, shader);
         
         if (red > 1.0)
             delta = -1 * fabs(delta);
