@@ -74,13 +74,10 @@ int main(void)
 
     glm::mat4 projection = glm::ortho(0.0, 1280.0, 0.0, 720.0, -1.0, 1.0);
     glm::mat4 view = glm::translate(glm::mat4(1.0), glm::vec3(-100, 0, 0));
-    glm::mat4 model = glm::translate(glm::mat4(1.0), glm::vec3(200, 200, 0));
-    glm::mat4 mvp = projection * view * model;
 
     Shader shader("resources/shaders/basic.shader");
     shader.Bind();
     shader.SetUniform4f("u_Color", 0.2, 0.3, 0.8, 1.0);
-    shader.SetUniformMat4f("u_MVP", mvp);
 
     Texture texture("resources/textures/texture.jpg");
     texture.Bind();
@@ -97,10 +94,7 @@ int main(void)
     ImGui_ImplGlfwGL3_Init(window, true);
     ImGui::StyleColorsDark();
 
-    bool show_demo_window = true;
-    bool show_another_window = false;
-    ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-
+    glm::vec3 translation(200, 200, 0);
     float red = 0.0;
     float delta = 0.05;
     
@@ -112,8 +106,12 @@ int main(void)
 
         ImGui_ImplGlfwGL3_NewFrame();
 
+        glm::mat4 model = glm::translate(glm::mat4(1.0), translation);
+        glm::mat4 mvp = projection * view * model;
+
         shader.Bind();
         shader.SetUniform4f("u_Color", red, 0.3, 0.8, 1.0);
+        shader.SetUniformMat4f("u_MVP", mvp);
 
         renderer.Draw(va, ib, shader);
         
@@ -125,20 +123,7 @@ int main(void)
         red += delta;
 
         {
-            static float f = 0.0f;
-            static int counter = 0;
-            ImGui::Text("Hello, world!");                           // Display some text (you can use a format string too)
-            ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f    
-            ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
-
-            ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our windows open/close state
-            ImGui::Checkbox("Another Window", &show_another_window);
-
-            if (ImGui::Button("Button"))                            // Buttons return true when clicked (NB: most widgets return true when edited/activated)
-                counter++;
-            ImGui::SameLine();
-            ImGui::Text("counter = %d", counter);
-
+            ImGui::SliderFloat3("Translation", &translation.x, 0.0f, 1280.0);
             ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
         }
 
