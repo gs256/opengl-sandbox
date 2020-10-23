@@ -27,7 +27,7 @@ int main(void)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(1280, 720, "Hello World", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -42,10 +42,10 @@ int main(void)
         throw std::exception();
 
     float positions[] = {
-        -0.5, -0.5, 0.0, 0.0,
-        0.5, -0.5, 1.0, 0.0,
-        0.5, 0.5, 1.0, 1.0,
-        -0.5, 0.5, 0.0, 1.0
+        100.0, 100.0, 0.0, 0.0,
+        200.0, 100.0, 1.0, 0.0,
+        200.0, 200.0, 1.0, 1.0,
+        100.0, 200.0, 0.0, 1.0
     };
 
     unsigned int indicies[] = {
@@ -70,12 +70,15 @@ int main(void)
 
     IndexBuffer ib(indicies, 6);
 
-    glm::mat4 projection = glm::ortho(-2.0, 2.0, -1.5, 1.5, -1.0, 1.0);
+    glm::mat4 projection = glm::ortho(0.0, 1280.0, 0.0, 720.0, -1.0, 1.0);
+    glm::mat4 view = glm::translate(glm::mat4(1.0), glm::vec3(-100, 0, 0));
+    glm::mat4 model = glm::translate(glm::mat4(1.0), glm::vec3(200, 200, 0));
+    glm::mat4 mvp = projection * view * model;
 
     Shader shader("resources/shaders/basic.shader");
     shader.Bind();
     shader.SetUniform4f("u_Color", 0.2, 0.3, 0.8, 1.0);
-    shader.SetUniformMat4f("u_MVP", projection);
+    shader.SetUniformMat4f("u_MVP", mvp);
 
     Texture texture("resources/textures/texture.jpg");
     texture.Bind();
