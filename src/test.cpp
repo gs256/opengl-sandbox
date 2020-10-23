@@ -10,6 +10,7 @@
 #include "vertex_array.h"
 #include "shader.h"
 #include "renderer.h"
+#include "texture.h"
 
 int main(void)
 {
@@ -39,10 +40,10 @@ int main(void)
         throw std::exception();
 
     float positions[] = {
-        -0.5, -0.5,
-        0.5, -0.5,
-        0.5, 0.5,
-        -0.5, 0.5,
+        -0.5, -0.5, 0.0, 0.0,
+        0.5, -0.5, 1.0, 0.0,
+        0.5, 0.5, 1.0, 1.0,
+        -0.5, 0.5, 0.0, 1.0
     };
 
     unsigned int indicies[] = {
@@ -50,14 +51,18 @@ int main(void)
         2, 3, 0
     };
 
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     unsigned int vao;
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
 
     VertexArray va;
-    VertexBuffer vb(positions, 4 * 2 * sizeof(float));
+    VertexBuffer vb(positions, 4 * 4 * sizeof(float));
 
     VertexBufferLayout layout;
+    layout.Push<float>(2);
     layout.Push<float>(2);
     va.AddBuffer(vb, layout);
 
@@ -66,6 +71,10 @@ int main(void)
     Shader shader("resources/shaders/basic.shader");
     shader.Bind();
     shader.SetUniform4f("u_Color", 0.2, 0.3, 0.8, 1.0);
+
+    Texture texture("resources/textures/texture.jpg");
+    texture.Bind();
+    shader.SetUniform1i("u_Texture", 0);
 
     va.Unbind();
     vb.Unbind();
