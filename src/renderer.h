@@ -1,5 +1,6 @@
 #pragma once
-#include "../glew/include/glew.h"
+#include <GL/glew.h>
+// #include "../glew/include/glew.h"
 #include "vertex_array.h"
 #include "index_buffer.h"
 #include "shader.h"
