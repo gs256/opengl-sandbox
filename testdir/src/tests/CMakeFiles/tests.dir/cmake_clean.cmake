@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tests.dir/test.cpp.obj"
   "CMakeFiles/tests.dir/test_clear_color.cpp.obj"
+  "CMakeFiles/tests.dir/test_texture2d.cpp.obj"
   "libtests.a"
   "libtests.pdb"
 )

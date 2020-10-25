@@ -489,6 +489,7 @@ src/CMakeFiles/opengl_test.dir/test.cpp.obj: ../src/shader.h
 src/CMakeFiles/opengl_test.dir/test.cpp.obj: ../src/test.cpp
 src/CMakeFiles/opengl_test.dir/test.cpp.obj: ../src/tests/test.h
 src/CMakeFiles/opengl_test.dir/test.cpp.obj: ../src/tests/test_clear_color.h
+src/CMakeFiles/opengl_test.dir/test.cpp.obj: ../src/tests/test_texture2d.h
 src/CMakeFiles/opengl_test.dir/test.cpp.obj: ../src/texture.h
 src/CMakeFiles/opengl_test.dir/test.cpp.obj: ../src/vendor/glm/common.hpp
 src/CMakeFiles/opengl_test.dir/test.cpp.obj: ../src/vendor/glm/detail/_fixes.hpp

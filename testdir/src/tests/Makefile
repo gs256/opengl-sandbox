@@ -197,6 +197,33 @@ test_clear_color.cpp.s:
 	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.s
 .PHONY : test_clear_color.cpp.s
 
+test_texture2d.obj: test_texture2d.cpp.obj
+
+.PHONY : test_texture2d.obj
+
+# target to build an object file
+test_texture2d.cpp.obj:
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/test_texture2d.cpp.obj
+.PHONY : test_texture2d.cpp.obj
+
+test_texture2d.i: test_texture2d.cpp.i
+
+.PHONY : test_texture2d.i
+
+# target to preprocess a source file
+test_texture2d.cpp.i:
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/test_texture2d.cpp.i
+.PHONY : test_texture2d.cpp.i
+
+test_texture2d.s: test_texture2d.cpp.s
+
+.PHONY : test_texture2d.s
+
+# target to generate assembly for a file
+test_texture2d.cpp.s:
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/test_texture2d.cpp.s
+.PHONY : test_texture2d.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -212,6 +239,9 @@ help:
 	@echo ... test_clear_color.obj
 	@echo ... test_clear_color.i
 	@echo ... test_clear_color.s
+	@echo ... test_texture2d.obj
+	@echo ... test_texture2d.i
+	@echo ... test_texture2d.s
 .PHONY : help
 
 
