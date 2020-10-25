@@ -212,6 +212,7 @@ src/opengl_test.exe: src/CMakeFiles/opengl_test.dir/vertex_buffer_layout.cpp.obj
 src/opengl_test.exe: src/CMakeFiles/opengl_test.dir/build.make
 src/opengl_test.exe: src/vendor/imgui/libimgui.a
 src/opengl_test.exe: src/vendor/stb_image/libstbi.a
+src/opengl_test.exe: src/tests/libtests.a
 src/opengl_test.exe: src/CMakeFiles/opengl_test.dir/linklibs.rsp
 src/opengl_test.exe: src/CMakeFiles/opengl_test.dir/objects1.rsp
 src/opengl_test.exe: src/CMakeFiles/opengl_test.dir/link.txt

@@ -488,6 +488,8 @@ src/CMakeFiles/opengl_test.dir/test.cpp.obj
  D:/Projects/C++/opengl_test/src/renderer.h
  D:/Projects/C++/opengl_test/src/shader.h
  D:/Projects/C++/opengl_test/src/test.cpp
+ D:/Projects/C++/opengl_test/src/tests/test.h
+ D:/Projects/C++/opengl_test/src/tests/test_clear_color.h
  D:/Projects/C++/opengl_test/src/texture.h
  D:/Projects/C++/opengl_test/src/vendor/glm/common.hpp
  D:/Projects/C++/opengl_test/src/vendor/glm/detail/_fixes.hpp

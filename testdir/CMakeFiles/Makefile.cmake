@@ -32,6 +32,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "D:/Packages/CMake/share/cmake-3.18/Modules/Platform/WindowsPaths.cmake"
   "../CMakeLists.txt"
   "../src/CMakeLists.txt"
+  "../src/tests/CMakeLists.txt"
   "../src/vendor/imgui/CMakeLists.txt"
   "../src/vendor/stb_image/CMakeLists.txt"
   "CMakeFiles/3.18.2/CMakeCCompiler.cmake"
@@ -50,6 +51,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/vendor/imgui/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/vendor/stb_image/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
@@ -57,6 +59,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "src/CMakeFiles/opengl_test.dir/DependInfo.cmake"
+  "src/tests/CMakeFiles/tests.dir/DependInfo.cmake"
   "src/vendor/imgui/CMakeFiles/imgui.dir/DependInfo.cmake"
   "src/vendor/stb_image/CMakeFiles/stbi.dir/DependInfo.cmake"
   )

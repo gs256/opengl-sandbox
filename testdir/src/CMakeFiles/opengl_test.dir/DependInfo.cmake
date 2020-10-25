@@ -27,6 +27,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "D:/Projects/C++/opengl_test/testdir/src/vendor/imgui/CMakeFiles/imgui.dir/DependInfo.cmake"
   "D:/Projects/C++/opengl_test/testdir/src/vendor/stb_image/CMakeFiles/stbi.dir/DependInfo.cmake"
+  "D:/Projects/C++/opengl_test/testdir/src/tests/CMakeFiles/tests.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

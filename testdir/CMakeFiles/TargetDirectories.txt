@@ -3,6 +3,9 @@ D:/Projects/C++/opengl_test/testdir/CMakeFiles/rebuild_cache.dir
 D:/Projects/C++/opengl_test/testdir/src/CMakeFiles/opengl_test.dir
 D:/Projects/C++/opengl_test/testdir/src/CMakeFiles/edit_cache.dir
 D:/Projects/C++/opengl_test/testdir/src/CMakeFiles/rebuild_cache.dir
+D:/Projects/C++/opengl_test/testdir/src/tests/CMakeFiles/tests.dir
+D:/Projects/C++/opengl_test/testdir/src/tests/CMakeFiles/edit_cache.dir
+D:/Projects/C++/opengl_test/testdir/src/tests/CMakeFiles/rebuild_cache.dir
 D:/Projects/C++/opengl_test/testdir/src/vendor/imgui/CMakeFiles/imgui.dir
 D:/Projects/C++/opengl_test/testdir/src/vendor/imgui/CMakeFiles/edit_cache.dir
 D:/Projects/C++/opengl_test/testdir/src/vendor/imgui/CMakeFiles/rebuild_cache.dir

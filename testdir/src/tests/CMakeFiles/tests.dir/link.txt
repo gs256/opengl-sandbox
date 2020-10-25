@@ -1,0 +1,2 @@
+D:\Packages\MinGW\mingw64\bin\ar.exe qc libtests.a CMakeFiles/tests.dir/test_clear_color.cpp.obj
+D:\Packages\MinGW\mingw64\bin\ranlib.exe libtests.a

@@ -98,14 +98,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Projects\C++\opengl_test\testdir\CMakeFiles D:\Projects\C++\opengl_test\testdir\\CMakeFiles\progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
+	cd /d D:\Projects\C++\opengl_test\testdir && $(CMAKE_COMMAND) -E cmake_progress_start D:\Projects\C++\opengl_test\testdir\CMakeFiles D:\Projects\C++\opengl_test\testdir\src\tests\\CMakeFiles\progress.marks
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/tests/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\Projects\C++\opengl_test\testdir\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 clean
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/tests/clean
 .PHONY : clean
 
 # The main clean target
@@ -115,70 +115,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/tests/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/tests/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d D:\Projects\C++\opengl_test\testdir && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named opengl_test
+# Convenience name for target.
+src/tests/CMakeFiles/tests.dir/rule:
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/tests/CMakeFiles/tests.dir/rule
+.PHONY : src/tests/CMakeFiles/tests.dir/rule
 
-# Build rule for target.
-opengl_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 opengl_test
-.PHONY : opengl_test
+# Convenience name for target.
+tests: src/tests/CMakeFiles/tests.dir/rule
 
-# fast build rule for target.
-opengl_test/fast:
-	$(MAKE) $(MAKESILENT) -f src\CMakeFiles\opengl_test.dir\build.make src/CMakeFiles/opengl_test.dir/build
-.PHONY : opengl_test/fast
-
-#=============================================================================
-# Target rules for targets named tests
-
-# Build rule for target.
-tests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests
 .PHONY : tests
 
 # fast build rule for target.
 tests/fast:
-	$(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/build
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/build
 .PHONY : tests/fast
 
-#=============================================================================
-# Target rules for targets named imgui
+test_clear_color.obj: test_clear_color.cpp.obj
 
-# Build rule for target.
-imgui: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 imgui
-.PHONY : imgui
+.PHONY : test_clear_color.obj
 
-# fast build rule for target.
-imgui/fast:
-	$(MAKE) $(MAKESILENT) -f src\vendor\imgui\CMakeFiles\imgui.dir\build.make src/vendor/imgui/CMakeFiles/imgui.dir/build
-.PHONY : imgui/fast
+# target to build an object file
+test_clear_color.cpp.obj:
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.obj
+.PHONY : test_clear_color.cpp.obj
 
-#=============================================================================
-# Target rules for targets named stbi
+test_clear_color.i: test_clear_color.cpp.i
 
-# Build rule for target.
-stbi: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 stbi
-.PHONY : stbi
+.PHONY : test_clear_color.i
 
-# fast build rule for target.
-stbi/fast:
-	$(MAKE) $(MAKESILENT) -f src\vendor\stb_image\CMakeFiles\stbi.dir\build.make src/vendor/stb_image/CMakeFiles/stbi.dir/build
-.PHONY : stbi/fast
+# target to preprocess a source file
+test_clear_color.cpp.i:
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.i
+.PHONY : test_clear_color.cpp.i
+
+test_clear_color.s: test_clear_color.cpp.s
+
+.PHONY : test_clear_color.s
+
+# target to generate assembly for a file
+test_clear_color.cpp.s:
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.s
+.PHONY : test_clear_color.cpp.s
 
 # Help Target
 help:
@@ -188,10 +178,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... imgui
-	@echo ... opengl_test
-	@echo ... stbi
 	@echo ... tests
+	@echo ... test_clear_color.obj
+	@echo ... test_clear_color.i
+	@echo ... test_clear_color.s
 .PHONY : help
 
 
@@ -203,6 +193,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d D:\Projects\C++\opengl_test\testdir && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
