@@ -4,6 +4,8 @@
 src/tests/CMakeFiles/tests.dir/test.cpp.obj
  D:/Projects/C++/opengl_test/src/tests/test.cpp
  D:/Projects/C++/opengl_test/src/tests/test.h
+ D:/Projects/C++/opengl_test/src/vendor/imgui/imconfig.h
+ D:/Projects/C++/opengl_test/src/vendor/imgui/imgui.h
 src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.obj
  ../dependencies/glew/include/GL/glew.h
  D:/Projects/C++/opengl_test/src/index_buffer.h

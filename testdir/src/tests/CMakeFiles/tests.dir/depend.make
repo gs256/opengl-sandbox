@@ -3,6 +3,8 @@
 
 src/tests/CMakeFiles/tests.dir/test.cpp.obj: ../src/tests/test.cpp
 src/tests/CMakeFiles/tests.dir/test.cpp.obj: ../src/tests/test.h
+src/tests/CMakeFiles/tests.dir/test.cpp.obj: ../src/vendor/imgui/imconfig.h
+src/tests/CMakeFiles/tests.dir/test.cpp.obj: ../src/vendor/imgui/imgui.h
 
 src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.obj: ../dependencies/glew/include/GL/glew.h
 src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.obj: ../src/index_buffer.h

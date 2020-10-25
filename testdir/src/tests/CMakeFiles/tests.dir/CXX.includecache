@@ -45,8 +45,14 @@ D:/Projects/C++/opengl_test/src/vendor/glm/glm.hpp
 D:/Projects/C++/opengl_test/src/tests/test.cpp
 test.h
 D:/Projects/C++/opengl_test/src/tests/test.h
+../vendor/imgui/imgui.h
+D:/Projects/C++/opengl_test/src/vendor/imgui/imgui.h
 
 D:/Projects/C++/opengl_test/src/tests/test.h
+vector
+-
+functional
+-
 
 D:/Projects/C++/opengl_test/src/tests/test_clear_color.cpp
 test_clear_color.h
