@@ -143,6 +143,33 @@ tests/fast:
 	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/build
 .PHONY : tests/fast
 
+test.obj: test.cpp.obj
+
+.PHONY : test.obj
+
+# target to build an object file
+test.cpp.obj:
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/test.cpp.obj
+.PHONY : test.cpp.obj
+
+test.i: test.cpp.i
+
+.PHONY : test.i
+
+# target to preprocess a source file
+test.cpp.i:
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/test.cpp.i
+.PHONY : test.cpp.i
+
+test.s: test.cpp.s
+
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.cpp.s:
+	cd /d D:\Projects\C++\opengl_test\testdir && $(MAKE) $(MAKESILENT) -f src\tests\CMakeFiles\tests.dir\build.make src/tests/CMakeFiles/tests.dir/test.cpp.s
+.PHONY : test.cpp.s
+
 test_clear_color.obj: test_clear_color.cpp.obj
 
 .PHONY : test_clear_color.obj
@@ -179,6 +206,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... tests
+	@echo ... test.obj
+	@echo ... test.i
+	@echo ... test.s
 	@echo ... test_clear_color.obj
 	@echo ... test_clear_color.i
 	@echo ... test_clear_color.s

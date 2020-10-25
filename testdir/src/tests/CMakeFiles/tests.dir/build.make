@@ -75,10 +75,24 @@ include src/tests/CMakeFiles/tests.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/tests/CMakeFiles/tests.dir/flags.make
 
+src/tests/CMakeFiles/tests.dir/test.cpp.obj: src/tests/CMakeFiles/tests.dir/flags.make
+src/tests/CMakeFiles/tests.dir/test.cpp.obj: src/tests/CMakeFiles/tests.dir/includes_CXX.rsp
+src/tests/CMakeFiles/tests.dir/test.cpp.obj: ../src/tests/test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\C++\opengl_test\testdir\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/tests/CMakeFiles/tests.dir/test.cpp.obj"
+	cd /d D:\Projects\C++\opengl_test\testdir\src\tests && D:\Packages\MinGW\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\tests.dir\test.cpp.obj -c D:\Projects\C++\opengl_test\src\tests\test.cpp
+
+src/tests/CMakeFiles/tests.dir/test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/test.cpp.i"
+	cd /d D:\Projects\C++\opengl_test\testdir\src\tests && D:\Packages\MinGW\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Projects\C++\opengl_test\src\tests\test.cpp > CMakeFiles\tests.dir\test.cpp.i
+
+src/tests/CMakeFiles/tests.dir/test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/test.cpp.s"
+	cd /d D:\Projects\C++\opengl_test\testdir\src\tests && D:\Packages\MinGW\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projects\C++\opengl_test\src\tests\test.cpp -o CMakeFiles\tests.dir\test.cpp.s
+
 src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.obj: src/tests/CMakeFiles/tests.dir/flags.make
 src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.obj: src/tests/CMakeFiles/tests.dir/includes_CXX.rsp
 src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.obj: ../src/tests/test_clear_color.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\C++\opengl_test\testdir\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\C++\opengl_test\testdir\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.obj"
 	cd /d D:\Projects\C++\opengl_test\testdir\src\tests && D:\Packages\MinGW\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\tests.dir\test_clear_color.cpp.obj -c D:\Projects\C++\opengl_test\src\tests\test_clear_color.cpp
 
 src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.i: cmake_force
@@ -91,15 +105,17 @@ src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.s: cmake_force
 
 # Object files for target tests
 tests_OBJECTS = \
+"CMakeFiles/tests.dir/test.cpp.obj" \
 "CMakeFiles/tests.dir/test_clear_color.cpp.obj"
 
 # External object files for target tests
 tests_EXTERNAL_OBJECTS =
 
+src/tests/libtests.a: src/tests/CMakeFiles/tests.dir/test.cpp.obj
 src/tests/libtests.a: src/tests/CMakeFiles/tests.dir/test_clear_color.cpp.obj
 src/tests/libtests.a: src/tests/CMakeFiles/tests.dir/build.make
 src/tests/libtests.a: src/tests/CMakeFiles/tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Projects\C++\opengl_test\testdir\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libtests.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Projects\C++\opengl_test\testdir\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libtests.a"
 	cd /d D:\Projects\C++\opengl_test\testdir\src\tests && $(CMAKE_COMMAND) -P CMakeFiles\tests.dir\cmake_clean_target.cmake
 	cd /d D:\Projects\C++\opengl_test\testdir\src\tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\tests.dir\link.txt --verbose=$(VERBOSE)
 

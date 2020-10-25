@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/tests.dir/test.cpp.obj"
   "CMakeFiles/tests.dir/test_clear_color.cpp.obj"
   "libtests.a"
   "libtests.pdb"

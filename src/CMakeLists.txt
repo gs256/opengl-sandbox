@@ -13,7 +13,7 @@ target_include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/vendor/stb_image
 )
 
-target_link_libraries(opengl_test imgui stbi)
+target_link_libraries(opengl_test imgui stbi tests)
 target_link_libraries(
     opengl_test
     glfw3dll 
