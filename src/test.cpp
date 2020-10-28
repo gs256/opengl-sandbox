@@ -5,15 +5,7 @@
 #include <string>
 #include <cmath>
 #include <sstream>
-
-struct ShaderProgramSource {
-    std::string vertexShader;
-    std::string fragmentShader;
-};
-
-static ShaderProgramSource ParseShader(const std::string& filePath);
-static unsigned int CompileShader(unsigned int type, const std::string& source);
-static unsigned int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
+#include "shader.h"
 
 int main(void)
 {
@@ -70,14 +62,13 @@ int main(void)
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
-    ShaderProgramSource shaderSrc = ParseShader("resources/shaders/basic.shader");
-    unsigned int shader = CreateShader(shaderSrc.vertexShader, shaderSrc.fragmentShader);
+    Shader shader("resources/shaders/basic.shader");
 
     while (!glfwWindowShouldClose(window)) {
         glClearColor(0.1, 0.1, 0.1, 1.0);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glUseProgram(shader);
+        shader.Bind();
         glBindVertexArray(vao);
         glDrawArrays(GL_TRIANGLES, 0, 3);
         // glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
@@ -89,7 +80,7 @@ int main(void)
     glDeleteVertexArrays(1, &vao);
     glDeleteBuffers(1, &vbo);
     // glDeleteBuffers(1, &ebo);
-    glDeleteProgram(shader);
+    shader.Unbing();
     glfwTerminate();
     return 0;
 }
