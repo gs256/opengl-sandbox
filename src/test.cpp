@@ -11,6 +11,74 @@ struct ShaderProgramSource {
     std::string fragmentShader;
 };
 
+static ShaderProgramSource ParseShader(const std::string& filePath);
+static unsigned int CompileShader(unsigned int type, const std::string& source);
+static unsigned int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
+
+int main(void)
+{
+    GLFWwindow* window;
+
+    if (!glfwInit())
+        return -1;
+    
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    if (!window) {
+        glfwTerminate();
+        return -1;
+    }
+
+    glfwMakeContextCurrent(window);
+    glewInit();
+
+    float positions[] = {
+        -0.5, -0.5, 0.0,
+         0.5, -0.5, 0.0, 
+         0.0,  0.5, 0.0
+    };
+
+    unsigned int vao;
+    glGenVertexArrays(1, &vao);
+    glBindVertexArray(vao);
+
+    unsigned int vbo;
+    glGenBuffers(1, &vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    ShaderProgramSource shaderSrc = ParseShader("resources/shaders/basic.shader");
+    unsigned int shader = CreateShader(shaderSrc.vertexShader, shaderSrc.fragmentShader);
+
+    while (!glfwWindowShouldClose(window)) {
+        glClear(GL_COLOR_BUFFER_BIT);
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        glUseProgram(shader);
+        glBindVertexArray(vao);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    glDeleteVertexArrays(1, &vao);
+    glDeleteBuffers(1, &vbo);
+    glDeleteProgram(shader);
+    glfwTerminate();
+    return 0;
+}
+
 static ShaderProgramSource ParseShader(const std::string& filePath) {
     std::ifstream stream(filePath);
 
@@ -71,31 +139,4 @@ static unsigned int CreateShader(const std::string& vertexShader, const std::str
     glDeleteShader(vs);
     glDeleteShader(fs);
     return program;
-}
-
-int main(void)
-{
-    GLFWwindow* window;
-
-    if (!glfwInit())
-        return -1;
-
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-    if (!window) {
-        glfwTerminate();
-        return -1;
-    }
-
-    glfwMakeContextCurrent(window);
-
-    while (!glfwWindowShouldClose(window)) {
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        glfwSwapBuffers(window);
-
-        glfwPollEvents();
-    }
-
-    glfwTerminate();
-    return 0;
 }
