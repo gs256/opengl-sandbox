@@ -5,5 +5,5 @@ LIBS = -lglfw3dll -lopengl32 -lglew32
 OUTPUT = build/test
 
 all:
-	g++ $(MACROS) $(INCLUDE_DIRS) $(LIB_DIRS) src/test.cpp src/shader.cpp $(LIBS) -o $(OUTPUT)
+	g++ -g -std=c++17 $(MACROS) $(INCLUDE_DIRS) $(LIB_DIRS) src/test.cpp src/shader.cpp src/stb_image/stb_image.cpp $(LIBS) -o $(OUTPUT)
 	$(OUTPUT)
