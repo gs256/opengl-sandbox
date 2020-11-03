@@ -17,6 +17,8 @@ public:
     Shader(const std::string& filePath);
     ~Shader();
 
+    unsigned int GetId() const;
+
     void Bind() const;
     void Unbing() const;
 

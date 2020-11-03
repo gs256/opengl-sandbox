@@ -18,6 +18,10 @@ Shader::~Shader() {
     glDeleteProgram(rendererId);
 }
 
+unsigned int Shader::GetId() const {
+    return rendererId; 
+}
+
 void Shader::Bind() const {
     glUseProgram(rendererId);
 }
