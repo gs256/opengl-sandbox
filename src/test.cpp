@@ -128,15 +128,15 @@ int main(void)
     Shader shader("resources/shaders/basic.shader");
 
 
-    glm::mat4 model = glm::mat4(1.0);
-    model = glm::rotate(model, (float)glm::radians(-20.0), glm::vec3(1.0, 0.0, 0.0));
-    model = glm::rotate(model, (float)glm::radians(20.0), glm::vec3(0.0, 1.0, 0.0));
+    // glm::mat4 model = glm::mat4(1.0);
+    // model = glm::rotate(model, (float)glm::radians(-20.0), glm::vec3(1.0, 0.0, 0.0));
+    // model = glm::rotate(model, (float)glm::radians(20.0), glm::vec3(0.0, 1.0, 0.0));
 
-    glm::mat4 view = glm::mat4(1.0);
-    view = glm::translate(view, glm::vec3(0.0, 0.0, -3.0));
+    // glm::mat4 view = glm::mat4(1.0);
+    // view = glm::translate(view, glm::vec3(0.0, 0.0, -3.0));
 
-    glm::mat4 projection;
-    projection = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 100.0);
+    // glm::mat4 projection;
+    // projection = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 100.0);
 
     glEnable(GL_DEPTH_TEST);
 
@@ -144,11 +144,19 @@ int main(void)
         glClearColor(0.1, 0.1, 0.1, 1.0);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+        glm::mat4 model = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+        glm::mat4 view = glm::mat4(1.0f);
+        glm::mat4 projection = glm::mat4(1.0f);
+        model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
+        view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+        projection = glm::perspective(glm::radians(45.0f), (float)800 / (float)600, 0.1f, 100.0f);
+
         unsigned int modelLocation = glGetUniformLocation(shader.GetId(), "model");
-        glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
         unsigned int viewLocation = glGetUniformLocation(shader.GetId(), "view");
-        glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(view));
         unsigned int projectionLocation = glGetUniformLocation(shader.GetId(), "projection");
+        // Pass them to the shaders
+        glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
+        glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(view));
         glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(projection));
 
         glBindTexture(GL_TEXTURE_2D, texture);
