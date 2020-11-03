@@ -127,43 +127,54 @@ int main(void)
 
     Shader shader("resources/shaders/basic.shader");
 
-
-    // glm::mat4 model = glm::mat4(1.0);
-    // model = glm::rotate(model, (float)glm::radians(-20.0), glm::vec3(1.0, 0.0, 0.0));
-    // model = glm::rotate(model, (float)glm::radians(20.0), glm::vec3(0.0, 1.0, 0.0));
-
-    // glm::mat4 view = glm::mat4(1.0);
-    // view = glm::translate(view, glm::vec3(0.0, 0.0, -3.0));
-
-    // glm::mat4 projection;
-    // projection = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 100.0);
-
     glEnable(GL_DEPTH_TEST);
+
+    glm::vec3 cubePositions[] = {
+        glm::vec3( 0.0f,  0.0f,  0.0f), 
+        glm::vec3( 2.0f,  5.0f, -15.0f), 
+        glm::vec3(-1.5f, -2.2f, -2.5f),  
+        glm::vec3(-3.8f, -2.0f, -12.3f),  
+        glm::vec3( 2.4f, -0.4f, -3.5f),  
+        glm::vec3(-1.7f,  3.0f, -7.5f),  
+        glm::vec3( 1.3f, -2.0f, -2.5f),  
+        glm::vec3( 1.5f,  2.0f, -2.5f), 
+        glm::vec3( 1.5f,  0.2f, -1.5f), 
+        glm::vec3(-1.3f,  1.0f, -1.5f)  
+    };
 
     while (!glfwWindowShouldClose(window)) {
         glClearColor(0.1, 0.1, 0.1, 1.0);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        glm::mat4 model = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
         glm::mat4 view = glm::mat4(1.0f);
+        // glm::mat4 model = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
         glm::mat4 projection = glm::mat4(1.0f);
-        model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
+        // model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
         view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
         projection = glm::perspective(glm::radians(45.0f), (float)800 / (float)600, 0.1f, 100.0f);
 
-        unsigned int modelLocation = glGetUniformLocation(shader.GetId(), "model");
+        // unsigned int modelLocation = glGetUniformLocation(shader.GetId(), "model");
         unsigned int viewLocation = glGetUniformLocation(shader.GetId(), "view");
         unsigned int projectionLocation = glGetUniformLocation(shader.GetId(), "projection");
         // Pass them to the shaders
-        glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
+        // glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
         glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(view));
         glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(projection));
 
         glBindTexture(GL_TEXTURE_2D, texture);
         shader.Bind();
         glBindVertexArray(vao);
+        for(unsigned int i = 0; i < 10; i++) {
+            glm::mat4 model = glm::mat4(1.0f);
+            model = glm::translate(model, cubePositions[i]);
+            float angle = 20.0f * i; 
+            unsigned int modelLocation = glGetUniformLocation(shader.GetId(), "model");
+            model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+            glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
+
+            glDrawArrays(GL_TRIANGLES, 0, 36);
+        }
         // glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        glDrawArrays(GL_TRIANGLES, 0, 36);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
