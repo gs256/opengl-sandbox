@@ -161,22 +161,19 @@ int main(void) {
 
         glm::mat4 view = camera.GetViewMatrix();
 
-        unsigned int viewLocation = glGetUniformLocation(shader.GetId(), "view");
-        unsigned int projectionLocation = glGetUniformLocation(shader.GetId(), "projection");
-        glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(view));
-        glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(projection));
+        shader.SetUniformMat4f("view", view);
+        shader.SetUniformMat4f("projection", projection);
 
         texture.Bind();
         shader.Bind();
         vao.Bind();
 
         for(unsigned int i = 0; i < 10; i++) {
+            float angle = 20.0f * i; 
             glm::mat4 model = glm::mat4(1.0f);
             model = glm::translate(model, cubePositions[i]);
-            float angle = 20.0f * i; 
-            unsigned int modelLocation = glGetUniformLocation(shader.GetId(), "model");
             model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
-            glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
+            shader.SetUniformMat4f("model", model);
 
             renderer.Draw(vao, shader);
         }
